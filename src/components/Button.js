@@ -8,8 +8,6 @@ export default function Button(props) {
       'button',
       {'button--confirm': props.confirm},
       {'button--danger': props.danger},
-      {'onClick': props.onClick},
-      {'disabled': props.disabled}
       );
 
    return (
