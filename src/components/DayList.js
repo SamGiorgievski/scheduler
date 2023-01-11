@@ -11,7 +11,7 @@ const renderDayList = props.days.map((day) => {
         name={day.name} 
         spots={day.spots} 
         selected={day.name === props.day}
-        setDay={day.setDay}  
+        setDay={props.setDay}  
       />
   );
 })
