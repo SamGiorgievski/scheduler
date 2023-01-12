@@ -5,7 +5,9 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "normalize.css": "^8.0.1",
+    "prop-types": "^15.8.1",
     "react": "^16.9.0",
+    "react-axios": "^2.0.6",
     "react-dom": "^16.9.0",
     "react-scripts": "3.4.4"
   },
@@ -46,5 +48,6 @@
       "<rootDir>/node_modules/",
       "<rootDir>/.git/"
     ]
-  }
+  },
+  "proxy": "http://localhost:8001"
 }

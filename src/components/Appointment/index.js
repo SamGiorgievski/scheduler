@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import './styles.scss';
 import Header from './Header';
 import Show from "./Show";
