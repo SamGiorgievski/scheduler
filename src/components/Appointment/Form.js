@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import classNames from "classnames";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
@@ -27,7 +26,7 @@ export default function Form(props) {
             className="appointment__create-input text--semi-bold"
             name="name"
             type="text"
-            placeholder={student}
+            placeholder= "Enter student name"
             onChange={(event) => setStudent(event.target.value)}
           />
         </form>
