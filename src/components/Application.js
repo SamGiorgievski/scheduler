@@ -30,11 +30,42 @@ export default function Application(props) {
         {...appointment}
         interview={interview}
         interviewers={interviewersToday}
+        bookInterview={bookInterview}
       />
       )
     }) 
     return appointmentData;
   }
+
+  function bookInterview(id, interview) {
+
+  console.log("book interview start");
+
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+
+    return axios
+    .put(`/api/appointments/${id}`, {
+      interview: interview
+    })
+    .then((response) => {
+      setState({
+        ...state,
+        appointments
+      });
+      console.log("set state");
+    })
+    
+  }
+
+
 
   useEffect(() => {
     Promise.all([
