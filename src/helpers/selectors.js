@@ -16,3 +16,30 @@ daysArray.forEach(dayObject => {
 
   return appointmentArray;
 }
+
+
+export function getInterview(state, interview) {
+  
+  if (!interview) {
+    return null;
+  } else {
+
+    const interviewObject = {};
+    interviewObject.student = interview.student;
+    const interviewerId = interview.interviewer;
+    interviewObject.interviewer = state.interviewers[interviewerId];
+
+    return interviewObject;
+  }
+
+}
+
+
+// {  
+//   "student": "Lydia Miller-Jones",
+//   "interviewer": {  
+//     "id": 1,
+//     "name": "Sylvia Palmer",
+//     "avatar": "https://i.imgur.com/LpaY82x.png"
+//   }
+// }
