@@ -16,3 +16,20 @@ daysArray.forEach(dayObject => {
 
   return appointmentArray;
 }
+
+
+export function getInterview(state, interview) {
+  
+  if (!interview) {
+    return null;
+  } else {
+
+    const interviewObject = {};
+    interviewObject.student = interview.student;
+    const interviewerId = interview.interviewer;
+    interviewObject.interviewer = state.interviewers[interviewerId];
+
+    return interviewObject;
+  }
+
+}
