@@ -12,6 +12,18 @@ export default function useApplicationData() {
 
 const setDay = (day) => setState({ ...state, day });
 
+const setSpots = (day, num) => {
+  let dayName = day;
+  let daysArray = state.days
+
+  for (let i = 0; i < daysArray.length; i++) {
+    if (daysArray[i].name === dayName) {
+      daysArray[i].spots += num;
+    }
+  }
+  return daysArray;
+}
+
 function cancelInterview (id) {
 
   const appointment = {
@@ -30,15 +42,16 @@ function cancelInterview (id) {
   .then((response) => {
     setState({
       ...state,
-      appointments
+      appointments,
+      days: setSpots(state.day, 1)
     });
+
+    
   })
 
 }
 
 function bookInterview(id, interview) {
-
-  console.log("book interview start");
 
     const appointment = {
       ...state.appointments[id],
@@ -55,10 +68,14 @@ function bookInterview(id, interview) {
       interview: interview
     })
     .then((response) => {
+
       setState({
         ...state,
-        appointments
+        appointments,
+        days: setSpots(state.day, -1)
       });
+      console.log(state)
+      
     })
     
   }
@@ -70,6 +87,7 @@ function bookInterview(id, interview) {
       axios.get("http://localhost:8001/api/interviewers")
     ]).then((all) => {
       setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data}));
+      
     });
   }, [])
 
