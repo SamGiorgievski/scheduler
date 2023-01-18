@@ -20,7 +20,7 @@ export default function Application(props) {
 
   const appointments = getAppointmentsForDay(state, state.day).map(
     appointment => {
-      console.log(appointment)
+      // console.log(appointment)
       return(
       <Appointment 
         key={appointment.id} 

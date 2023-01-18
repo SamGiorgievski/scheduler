@@ -27,7 +27,6 @@ export default function Appointment(props) {
   );
 
   function save(name, interviewer) {
-
     transition(SAVING)
 
     const interview = {
@@ -67,8 +66,8 @@ return (
     />
   )}
   {mode === CREATE && <Form onSave = {save} onCancel = {back} interviewers={props.interviewers} />}
-  {mode === SAVING && <Status message = "Saving.." />}
-  {mode === DELETING && <Status message = "Deleting.." />}
+  {mode === SAVING && <Status message = "Saving" />}
+  {mode === DELETING && <Status message = "Deleting" />}
   {mode === CONFIRM && <Confirm onDelete={onDelete} onCancel={() => back()} message = "Are you sure you would like to delete?"/>}
   {mode === EDITING && <Form onSave = {save} onCancel = {back} interviewers={props.interviewers} student={props.interview.student} interviewer={props.interview.interviewer.id} />}
   {mode === ERROR_SAVE && <Error message = "There was an error saving your request." onClose={back}/>}
