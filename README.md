@@ -11,9 +11,9 @@ Interview scheduler is a single-page app built with react that allows students t
 - Stored and rendered via database, info persists between sessions
  
  ## Final Product
- !["Initial page"]()
- !["Create appointment"]()
- !["View updated changes"]()
+ !["Initial page"](https://github.com/SamGiorgievski/scheduler/blob/master/docs/First%20view.png?raw=true)
+ !["Create appointment"](https://github.com/SamGiorgievski/scheduler/blob/master/docs/Create%20appointment.png?raw=true)
+ !["View updated changes"](https://github.com/SamGiorgievski/scheduler/blob/master/docs/Updated%20view.png?raw=true)
 
 ## Setup
 
