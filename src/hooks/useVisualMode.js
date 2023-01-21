@@ -4,29 +4,26 @@ export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);
 
-
   // set state "mode" to new state, and keep track of history
   // replace T/F determines whether or not to skip a temporary state "mode" in history
   function transition(next, replace = false) {
-
+    const newHistory = [...history];
     if (replace) {
-      history.pop();
+      newHistory.pop();
     }
-
-    history.push(next);
-    setHistory(history);
+    newHistory.push(next);
+    setHistory(newHistory);
     setMode(next);
   }
 
   // set state "mode" to previous state
   function back() {
-
-    if (history.length > 1) {
-      history.pop();
-      setHistory(history);
-      setMode(history[history.length - 1]);
+    const newHistory = [...history];
+    if (newHistory.length > 1) {
+      newHistory.pop();
+      setHistory(newHistory);
+      setMode(newHistory[newHistory.length - 1]);
     }
   }
-
   return { mode, transition, back };
 }
